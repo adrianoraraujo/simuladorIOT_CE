@@ -41,19 +41,19 @@ def conectado(con, cliente):
         print(pedido)
 
         if(destino!=me[0][0]or destino!="FIM"):
-            msg2= "CONEXÂO RECUSADA"
+            msg2= "CONEXÂO RECUSADA"+"\n"
             con.send(str.encode(msg2))
             con.close()
             thread.exit()
         
         if(str(pedido)=="STATUS"):
-            msg2= me[0][0]+" "+me[0][1]+" "+remetente
+            msg2= me[0][0]+" "+me[0][1]+" "+remetente+"\n"
             con.send(str.encode(msg2))
             con.close()
             thread.exit()
 
         elif(str(pedido)=="DESCARREGAR"):
-            msg2= me[0][0]+" "+"OK"+" "+remetente
+            msg2= me[0][0]+" "+"OK"+" "+remetente+"\n"
             con.send(str.encode(msg2))
 
         elif(str(detino)=="FIM"):
