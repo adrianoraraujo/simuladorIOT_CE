@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import socket
 import thread
 from random import randrange, uniform
@@ -19,7 +20,7 @@ for t in ident:
     k=t.split(",")
     print(k)
     me[0][0]=str(k[0])
-    me[0][1]=int(k[1])
+    me[0][1]=str(k[1])
     me[0][2]=str(k[2])
 print(me[0][0])
 print(me[0][1])
@@ -40,7 +41,7 @@ def conectado(con, cliente):
         print(destino)
         print(pedido)
 
-        if(destino!=me[0][0]or destino!="FIM"):
+        if(destino!=me[0][0] or destino!="FIM"):
             msg2= "CONEXÂO RECUSADA"+"\n"
             con.send(str.encode(msg2))
             con.close()
@@ -65,7 +66,7 @@ def conectado(con, cliente):
             print('Finalizando conexao do cliente', cliente)
             con.close()
             thread.exit()
-            res= me[0][0]+","+0000+","+me[0][2]
+            res= me[0][0]+","+"0000"+","+me[0][2]
             arq = open('config.txt', 'w')
             arq.write(res)
             arq.close()
